@@ -23,13 +23,3 @@ VALUES
     ('Derek', 'Jarman', 5, 5),
     ('Paolo', 'Pasolini', 6, null),
     ('Sandy', 'Powell', 7, 7);
-
-SELECT employees.id, employees.first_name, employees.last_name,
- roles.title AS role_title, 
- roles.salary, 
- departments.name AS department_name,
- CONCAT(manager.first_name,' ', manager.last_name) AS manager 
- FROM employees
-    LEFT JOIN roles ON employees.role_id = roles.id
-    LEFT JOIN departments ON departments.id = roles.department_id
-    LEFT JOIN employees manager ON employees.manager_id = manager.id;

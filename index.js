@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
 const cTable = require('console.table');
-const { getAllDepartments, addDepartment } = require('./lib/departments')
-const { getAllRoles, addRole } = require('./lib/roles')
+const { getAllDepartments, addDepartment } = require('./lib/departments');
+const { getAllRoles, addRole } = require('./lib/roles');
+const { getAllEmployees, addEmployee } = require('./lib/employees');
 
 const actionSelection = () => {
     inquirer.prompt([
@@ -27,31 +28,32 @@ const actionSelection = () => {
                 console.table(res);
                 actionSelection();
             });
-            return;
         } else if (action === 'Add a Department') {
             addDepartment().then(() => {
                 console.log('Department added.')
                 actionSelection();
             });
-           return;
         } else if (action === 'View All Roles') {
             getAllRoles().then(res => {
                 console.table(res);
                 actionSelection();
             });
-            return;
         } else if (action === 'Add a Role') {
             addRole().then(() => {
                 console.log('Role added.')
                 actionSelection();
             });
-           return;
         } else if (action === 'View All Employees') {
-            return;
+            getAllEmployees().then(res => {
+                console.table(res);
+                actionSelection();
+            });
         } else if (action === 'Add an Employee') {
-            return;
+            addEmployee().then(() => {
+                console.log('Employee added.')
+                actionSelection();
+            });
         } else if (action === 'Update an Employee') {
-            return;
         } else {
             console.log('Goodbye!')
             process.exit()
