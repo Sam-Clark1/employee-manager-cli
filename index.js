@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 const { getAllDepartments, addDepartment } = require('./lib/departments')
+const { getAllRoles, addRole } = require('./lib/roles')
 
 const actionSelection = () => {
     inquirer.prompt([
@@ -34,9 +35,17 @@ const actionSelection = () => {
             });
            return;
         } else if (action === 'View All Roles') {
+            getAllRoles().then(res => {
+                console.table(res);
+                actionSelection();
+            });
             return;
         } else if (action === 'Add a Role') {
-            return;
+            addRole().then(() => {
+                console.log('Role added.')
+                actionSelection();
+            });
+           return;
         } else if (action === 'View All Employees') {
             return;
         } else if (action === 'Add an Employee') {
