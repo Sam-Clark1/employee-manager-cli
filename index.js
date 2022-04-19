@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const cTable = require('console.table');
 const { getAllDepartments, addDepartment } = require('./lib/departments');
 const { getAllRoles, addRole } = require('./lib/roles');
-const { getAllEmployees, addEmployee } = require('./lib/employees');
+const { getAllEmployees, addEmployee, editEmployee } = require('./lib/employees');
 
 const actionSelection = () => {
     inquirer.prompt([
@@ -17,7 +17,7 @@ const actionSelection = () => {
                 'Add a Role',
                 'View All Employees',
                 'Add an Employee',
-                'Update an Employee',
+                'Edit an Employee',
                 'Finish'
             ]
         }
@@ -53,7 +53,11 @@ const actionSelection = () => {
                 console.log('Employee added.')
                 actionSelection();
             });
-        } else if (action === 'Update an Employee') {
+        } else if (action === 'Edit an Employee') {
+            editEmployee().then(() => {
+                console.log('Employee edited.')
+                actionSelection();
+            });
         } else {
             console.log('Goodbye!')
             process.exit()
