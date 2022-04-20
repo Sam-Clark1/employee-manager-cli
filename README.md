@@ -15,10 +15,10 @@ This application uses inquirer.js and mysql to provide a command line interface 
 6. [Questions](#questions)
 
 ## Installation
-Download files from GitHub repository and open in VS Code. Open the terminal and type "npm i" to download all the required npm packages. To initialize the mysql database, go into the terminal and type "mysql -u <'your user'> -p", then type in your password. Next run the following commands in this order: "source db/db.sql", "source db/schema.sql", "source db/seeds.js". It is recommended to seed the database before use. You can edit what is seed in the db/seed.js file.
+Download files from GitHub repository and open in VS Code. Open the terminal and type "npm i" to download all the required npm packages. To initialize the mysql database, go into the terminal and type "mysql -u <'your user'> -p", then type in your password. Next run the following commands in this order: "source db/db.sql", "source db/schema.sql", "source db/seeds.js". It is recommended to seed the database before use. You can edit what is seeded in the db/seed.js file.
 
 ## Usage
-Open the terminal and type "node index.js" to initialize the program. You will be present with a list of actions that you can choose from. Use all the actions you want and when youre done, hit the "finish" action to close the program. You can also watch a video on how to install and use this app <a href= >here</a>.
+Open the terminal and type "node index.js" to initialize the program. You will be present with a list of actions that you can choose from. Use all the actions you want and when youre done, hit the "finish" action to close the program. You can also watch a video on how to install and use this app <a href=https://drive.google.com/file/d/1jZvpM_zNVuIHLzB4vh6oMqu81UINMmSD/view >here</a>.
 
 ## Contributing
 I am open to others contributing. You can do this through pull requests on the GitHub repository.
