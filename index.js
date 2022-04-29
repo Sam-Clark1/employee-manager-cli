@@ -65,7 +65,29 @@ const actionSelection = () => {
     });
 };
 
-addInitialDepartment()
-.then(addInitialRole)
-.then(addInitialEmployee)
-.then(actionSelection);
+const intialize = async () => {
+getAllDepartments().then(res => {
+    if (res.length === 0) {
+        getAllRoles().then(res => {
+            if(res.length === 0) {
+                getAllEmployees().then(res => {
+                    if(res.length === 0) {
+                        addInitialDepartment()
+                        .then(addInitialRole)
+                        .then(addInitialEmployee)
+                        .then(actionSelection);
+                    } else {
+                        actionSelection();
+                    };
+                });
+            } else {
+                actionSelection();
+            };
+        });
+    } else {
+        actionSelection();
+    };
+});
+};
+
+intialize();
