@@ -1,8 +1,8 @@
 const inquirer = require('inquirer');
 const cTable = require('console.table');
-const { getAllDepartments, addDepartment } = require('./lib/departments');
-const { getAllRoles, addRole } = require('./lib/roles');
-const { getAllEmployees, addEmployee, editEmployee } = require('./lib/employees');
+const { getAllDepartments, addDepartment, addInitialDepartment } = require('./lib/departments');
+const { getAllRoles, addRole, addInitialRole } = require('./lib/roles');
+const { getAllEmployees, addEmployee, editEmployee, addInitialEmployee } = require('./lib/employees');
 
 const actionSelection = () => {
     inquirer.prompt([
@@ -65,4 +65,7 @@ const actionSelection = () => {
     });
 };
 
-actionSelection();
+addInitialDepartment()
+.then(addInitialRole)
+.then(addInitialEmployee)
+.then(actionSelection);
