@@ -65,7 +65,7 @@ const actionSelection = () => {
     });
 };
 
-const intialize = async () => {
+const intialize = () => {
 getAllDepartments().then(res => {
     if (res.length === 0) {
         getAllRoles().then(res => {
